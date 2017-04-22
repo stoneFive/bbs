@@ -1,5 +1,0 @@
-127.0.0.1 - - [13/Apr/2017:22:11:25 +0800] "GET /mgr/index.html HTTP/1.1" 200 5337 http-bio-8080-exec-1 1401
-127.0.0.1 - - [13/Apr/2017:22:11:26 +0800] "GET /main.html HTTP/1.1" 200 919 http-bio-8080-exec-7 91
-127.0.0.1 - - [13/Apr/2017:22:11:29 +0800] "GET /account/list.html?page=1&pageSize=10 HTTP/1.1" 404 5 http-bio-8080-exec-8 685
-127.0.0.1 - - [13/Apr/2017:22:12:22 +0800] "GET /account/list.html?page=1&pageSize=10 HTTP/1.1" 200 4693 http-bio-8080-exec-9 358
-127.0.0.1 - - [13/Apr/2017:22:12:23 +0800] "GET /resources/layui/lay/modules/laypage.js HTTP/1.1" 200 3416 http-bio-8080-exec-10 13
