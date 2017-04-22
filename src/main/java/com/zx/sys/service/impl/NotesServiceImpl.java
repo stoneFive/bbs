@@ -18,7 +18,7 @@ public class NotesServiceImpl extends BaseServiceImpl<Notes,Long,NotesRepository
 
     @Autowired
     @Override
-    public void setEntityRepository(NotesRepository repository) {
-        this.repository = repository;
+    public void setEntityRepository(NotesRepository notesRepository) {
+        this.repository = notesRepository;
     }
 }

@@ -41,7 +41,7 @@ public class RequestHandlerInterceptor implements HandlerInterceptor {
 
 		if(StringUtils.isEmpty(uname)||StringUtils.isBlank(uname)){
 			for (String url : excludedUrls) {
-				if (requestUri.endsWith(url)|| requestUri.indexOf("front")!=-1) {
+				if (requestUri.endsWith(url)|| requestUri.indexOf("front")!=-1||requestUri.indexOf("resources")!=-1) {
 					return true;
 				}
 			}

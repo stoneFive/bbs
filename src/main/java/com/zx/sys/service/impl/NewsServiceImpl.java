@@ -16,7 +16,7 @@ public class NewsServiceImpl extends BaseServiceImpl<News,Long,NewsRepository> i
 
     @Autowired
     @Override
-    public void setEntityRepository(NewsRepository repository) {
-        this.repository = repository;
+    public void setEntityRepository(NewsRepository newsRepository) {
+        this.repository = newsRepository;
     }
 }
