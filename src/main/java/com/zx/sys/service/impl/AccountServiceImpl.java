@@ -18,8 +18,8 @@ public class AccountServiceImpl extends BaseServiceImpl <Account,Long,AccountRep
 
     @Override
     @Autowired
-    public void setEntityRepository(AccountReposirory repository) {
-        this.repository = repository;
+    public void setEntityRepository(AccountReposirory accountReposirory) {
+        this.repository = accountReposirory;
     }
 
     @Override

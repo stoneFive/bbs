@@ -15,7 +15,7 @@ public class DeviceServiceImpl extends BaseServiceImpl<Device,Long,DeviceReposit
 
     @Autowired
     @Override
-    public void setEntityRepository(DeviceRepository repository) {
-        this.repository = repository;
+    public void setEntityRepository(DeviceRepository deviceRepository) {
+        this.repository = deviceRepository;
     }
 }

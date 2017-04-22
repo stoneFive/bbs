@@ -15,8 +15,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, Long, UserRepository>
 
 	@Override
 	@Autowired
-	public void setEntityRepository(UserRepository repository) {
-		this.repository = repository;
+	public void setEntityRepository(UserRepository userRepository) {
+		this.repository = userRepository;
 	}
 
 	@Override

@@ -14,8 +14,8 @@ public class RoleServiceImpl extends
 
 	@Override
 	@Autowired
-	public void setEntityRepository(RoleRepository repository) {
-		this.repository = repository;
+	public void setEntityRepository(RoleRepository roleRepository) {
+		this.repository = roleRepository;
 	}
 
 	@Override

@@ -16,8 +16,8 @@ import org.springframework.stereotype.Service;
 public class TopicServiceImpl extends BaseServiceImpl<Topic,Long,TopicRepository> implements TopicService {
    @Autowired
     @Override
-    public void setEntityRepository(TopicRepository repository) {
-        this.repository= repository;
+    public void setEntityRepository(TopicRepository topicRepository) {
+        this.repository= topicRepository;
     }
 
     @Autowired
