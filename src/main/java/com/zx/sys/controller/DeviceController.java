@@ -89,6 +89,16 @@ public class DeviceController extends BaseController<Device,Long,DeviceService> 
         return "device/view";
 
     }
+
+    @RequestMapping("/{id}.html")
+    public String dev(HttpServletRequest request, @PathVariable("id") long id,Model model){
+        Device device =  deviceService.get(id);
+        model.addAttribute("entity",device);
+        return "device/dev";
+
+    }
+
+
 @RequestMapping("/shenpi.html")
 public String shenpi(HttpServletRequest request,Device device){
     Device device1 = deviceService.get(device.getId());

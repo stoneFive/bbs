@@ -58,7 +58,7 @@ public class NewsController extends BaseController<News,Long,NewsService> {
     public String more(HttpServletRequest request,Model model){
         List<News> list  = entityService.listAll();
         model.addAttribute("entitys",list);
-        return "notes/more";
+        return "news/more";
     }
 
 }

@@ -58,15 +58,15 @@ public class IndexController {
     @RequestMapping("/index.html")
     public  String index (HttpServletRequest request,Model model){
 
-       java.util.List <Topic>  topicList = topicService.listAll();
+       java.util.List <Topic>  topicList = topicService.search(null,1,100,"desc","id").getContent();
         if(topicList.size()>10){
             topicList.subList(0,10);
         }
-        List<Notes> notes = notesService.listAll();
+        List<Notes> notes = notesService.search(null,1,100,"desc","id").getContent();
         if(notes.size()>10){
             notes.subList(0,10);
         }
-        List<News> newses = newsService.listAll();
+        List<News> newses = newsService.search(null,1,100,"desc","id").getContent();
         if(newses.size()>10){
             newses.subList(0,10);
         }
