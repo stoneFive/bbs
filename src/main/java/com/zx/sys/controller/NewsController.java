@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -44,13 +45,17 @@ public class NewsController extends BaseController<News,Long,NewsService> {
     }
 
     @RequestMapping("/del.html")
+    @ResponseBody
     public  String del(HttpServletRequest request, @RequestParam("id") long id){
         entityService.delete(id);
-        return "redirect:/news/index.html";
+        return "true";
     }
     @RequestMapping("/front/news.html")
     public  String news(HttpServletRequest request, @RequestParam("id") long id, Model model){
        News news = entityService.get(id);
+      int count =   news.getViewCount()+ 1;
+        news.setViewCount(count);
+        entityService.update(news);
         model.addAttribute("entity",news);
         return "/news/news";
     }

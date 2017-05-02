@@ -37,6 +37,19 @@
                     </div>
                 </div>
 
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+
+                        账户类型</label>
+                    <div class="layui-input-block">
+                        <select id="utype" name="utype" lay-verify="required">
+                            <option value="1">系统管理员</option>
+                            <option value="2">社团负责人</option>
+
+                        </select>
+                    </div>
+                </div>
+
 
                 <div class="layui-form-item">
                     <div class="layui-input-block" style="float: right;padding-right: 45px;">

@@ -51,14 +51,18 @@ public class NotesController extends BaseController<Notes,Long,NotesService> {
     }
 
     @RequestMapping("/del.html")
+    @ResponseBody
     public  String del(HttpServletRequest request, @RequestParam("id") long id){
         entityService.delete(id);
-        return "redirect:/notes/index.html";
+        return "true";
     }
 
     @RequestMapping("/front/notes.html")
     public  String notes(HttpServletRequest request, @RequestParam("id") long id, Model model){
         Notes notes = entityService.get(id);
+        int count = notes.getViewCount() + 1;
+        notes.setViewCount(count);
+        entityService.update(notes);
         model.addAttribute("entity",notes);
         return "/notes/notes";
     }

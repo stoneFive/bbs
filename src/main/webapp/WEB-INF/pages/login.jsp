@@ -38,7 +38,8 @@
                         <div class="layui-input-block">
                             <select id="utype" name="utype" lay-verify="required">
                                 <option value="0" selected>普通用户</option>
-                                <option value="1">系统用户</option>
+                                <option value="1">系统管理员</option>
+                                <option value="2">社团负责人</option>
 
                             </select>
                         </div>
@@ -58,6 +59,9 @@
 </div>
 
 <script type="text/javascript">
+    if (window.parent !== window.self) {
+        window.parent.location=window.self.location;
+    }
     var layer;
     var form
     layui.use(['layer', 'form'], function(){

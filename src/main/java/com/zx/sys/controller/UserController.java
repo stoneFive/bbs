@@ -1,5 +1,6 @@
 package com.zx.sys.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.zx.entity.system.User;
 import com.zx.sys.service.UserService;
 import com.zx.util.Constant;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -38,7 +40,7 @@ public class UserController extends BaseController<User,Long,UserService> {
             u.setNickName(user.getNickName());
             u.setStatus(user.getStatus());
             u.setCreateTime(new Date());
-
+            u.setUtype(user.getUtype());
 
             entityService.update(u);
         }else{
@@ -55,20 +57,41 @@ public class UserController extends BaseController<User,Long,UserService> {
     }
 
     @RequestMapping("/topwd.html")
-    public String pwd(HttpServletRequest request){
+    public String pwd(HttpServletRequest request,Model model){
+        String account =  request.getParameter("account");
+        model.addAttribute("curr",account);
         return "user/pwd";
     }
-    @RequestMapping(value="/resetpwd.html",method=RequestMethod.POST)
-    public String resetpwd(HttpServletRequest req , User user, Model model){
+    @RequestMapping("/currpwd.html")
+    public String currpwd(HttpServletRequest request,Model model){
+
+        return "user/pwd1";
+    }
+
+    @RequestMapping(value="/currpwd.html",method=RequestMethod.POST)
+    @ResponseBody
+    public String recpwd(HttpServletRequest req , User user, Model model){
         String account =  (String) req.getSession().getAttribute(Constant.SESSION_USER_NAME);
         User u = entityService.findByUserName(account);
         String newPwd = req.getParameter("newpwd") ;
         String tmp = MD5Util.MD5(newPwd);
         u.setPassword(tmp);
         entityService.update(u);
-        model.addAttribute("msg", "更新密码成功！");
-        return "redirect:/user/index.html";
+        return "true";
     }
+    @RequestMapping(value="/resetpwd.html",method=RequestMethod.POST)
+    @ResponseBody
+    public String resetpwd(HttpServletRequest req , User user, Model model){
+        String account =  req.getParameter("account");
+        User u = entityService.findByUserName(account);
+        String newPwd = req.getParameter("newpwd") ;
+        String tmp = MD5Util.MD5(newPwd);
+        u.setPassword(tmp);
+        entityService.update(u);
+        return "true";
+    }
+
+
     @RequestMapping("/del.html")
     public String del(HttpServletRequest request , @RequestParam("id") long id){
         entityService.delete(id);

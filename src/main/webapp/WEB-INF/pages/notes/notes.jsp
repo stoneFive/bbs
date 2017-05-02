@@ -30,7 +30,7 @@
                     <dl class="dl-inline ">
                         <dt>发表时间 :</dt>
                         <dd>  <fmt:formatDate value="${entity.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-
+                        <dd>  &nbsp;&nbsp;阅读 ${entity.viewCount} 次</dd>
                         </dd>
                     </dl>
                     <section class="abstract">

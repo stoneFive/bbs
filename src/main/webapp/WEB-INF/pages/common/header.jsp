@@ -7,8 +7,9 @@
                 <li class="layui-nav-item"><a href="${ctx}index.html">首页</a></li>
                 <li class="layui-nav-item"><a href="${ctx}news/front/more.html">社团新闻</a></li>
                 <li class="layui-nav-item"><a href="${ctx}notes/front/more.html">社团公告</a></li>
+                <li class="layui-nav-item"><a href="${ctx}trends/front/more.html">社团动态</a></li>
 
-                <c:if test="${sessionScope.userType ==1}">
+                <c:if test="${not empty sessionScope.userType  and sessionScope.userType !=0}">
                     <li class="layui-nav-item"><a href="${ctx}device/toAdd.html">公共设施预约</a></li>
 
                 </c:if>
@@ -32,6 +33,10 @@
             <c:if test="${not empty  sessionScope.user_name   }">
                 <span><a href="javascript:void(0)"> 欢迎 : ${sessionScope.user_name }</a></span>
                 <span><a href="${ctx}logout.html">退出</a></span>
+                <c:if test="${not empty sessionScope.userType  and sessionScope.userType !=0}">
+                    <span><a href="${ctx}mgr/index.html">后台管理</a></span>
+                </c:if>
+
             </c:if>
 
         </div>

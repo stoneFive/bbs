@@ -31,7 +31,7 @@
 
             <div class="layui-tab layui-tab-brief">
                 <ul class="layui-tab-title ">
-                    <li class="layui-this"><h3>社团公告</h3></li>
+                    <li class="layui-this"><h3>社团动态</h3></li>
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item layui-show">
@@ -40,7 +40,7 @@
                                 <li class="fly-list-li" style="padding-left: 15px">
 
                                     <p>
-                                        <span><a href="${ctx}notes/front/notes.html?id=${note.id}">${note.title}</a></span>
+                                        <span><a href="${ctx}trends/front/trend.html?id=${note.id}">${note.title}</a></span>
                                         <span></span>
                                         <span class="fly-list-hint">
                                             <i class="iconfont"><fmt:formatDate value="${note.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></i>&nbsp;&nbsp;

@@ -16,8 +16,8 @@
     <div class="row" style="margin-top: 20px;">
         <h3>密码修改</h3>
         <div class="col-md-12 ">
-            <form  id="myform" class="layui-form" action="" method="post">
-                <input name="account" value="${curr}" type="hidden"/>
+            <form  id="myform" class="layui-form" action="${ctx}user/resetpwd1.html" method="post">
+
                 <div class="layui-form-item">
                     <label class="layui-form-label">旧密码:</label>
                     <div class="layui-input-block">
@@ -58,19 +58,18 @@
 
             $.ajax({
                 type: "POST",
-                url: "${ctx}user/resetpwd.html",
+                url: "${ctx}user/currpwd.html",
                 data: d,
                 success: function(data){
                     var d =  $.parseJSON(data);
                     if(d){
                         layer.alert("修改成功", {icon: 1},function(index){
                             layer.close(index);
-                            window.location.href='${ctx}user/index.html';
+                            parent.layer.closeAll()
                         });
                     }
                 }
             });
-
             return false;
         });
 

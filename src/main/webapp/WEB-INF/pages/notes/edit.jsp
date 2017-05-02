@@ -60,7 +60,7 @@
 <script type="text/javascript">
     var layer;
     var form
-    layui.use(['layer', 'form','laydate','upload'], function(){
+    layui.use(['layer', 'form','laydate','upload','layedit'], function(){
         form = layui.form();
         layer = layui.layer;
         layui.upload({
@@ -72,6 +72,14 @@
                 layer.msg('上传成功！');
             }
         });
+        var layedit = layui.layedit;
+        layedit.set({
+            uploadImage: {
+                url: '${ctx}upload/image.html' //接口url
+                ,type: '' //默认post
+            }
+        });
+        layedit.build('contents'); //建立编辑器
         form.on('submit(myform)', function(data){
 
             return true;

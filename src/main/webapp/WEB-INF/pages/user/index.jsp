@@ -26,6 +26,7 @@
 
                 <div class="layui-form-item">
                     <div class="layui-input-block" style="float: right;padding-right: 45px;">
+                        <a id="" class="layui-btn"  href="${ctx}user/edit.html">添加</a>
                         <button id="search" class="layui-btn" type="submit">搜索</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
@@ -35,7 +36,7 @@
 
         <div class="row">
             <div class="col-md-8 col-sm-offset-1">
-                <a id="" class="layui-btn"  href="${ctx}user/edit.html">添加</a>
+
             </div>
         </div>
         <table class="layui-table" lay-skin="line">
@@ -53,7 +54,8 @@
                 <th>ID</th>
                 <th>账户</th>
                 <th>昵称</th>
-                <th>密码</th>
+                <th>用户角色</th>
+
                 <th>邮箱</th>
                 <th>注册时间</th>
                 <th>&nbsp;</th>
@@ -65,14 +67,15 @@
                             <td>${entity.id}</td>
                             <td>${entity.userName}</td>
                             <td>${entity.nickName}</td>
-                            <td>${entity.password}</td>
+                            <td>${entity.utype ==1 ? '系统用户':"社团管理员"}</td>
+
                             <td>${entity.email}</td>
                             <td><fmt:formatDate value="${entity.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                             <td>
                                 <c:if test="${entity.userName != 'admin'}">
                                     <button class="layui-btn layui-btn-small" onclick="del(${entity.id})" value="" >删除 </button>
                                 </c:if>
-                                <a class="layui-btn layui-btn-small" href="${ctx}user/topwd.html" >修改密码 </a>
+                                <a class="layui-btn layui-btn-small" href="${ctx}user/topwd.html?account=${entity.userName}" >修改密码 </a>
                             </td>
                         </tr>
                     </c:forEach>

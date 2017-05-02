@@ -33,12 +33,17 @@
                             <a href="javascript:;">
                                 个人信息
                             </a>
-                        </dd>
+                        </dd>--%>
+                            <dd>
+                                <a href="javascript:;void(0);">
+                                   &nbsp;
+                                </a>
+                            </dd>
                         <dd>
-                            <a href="javascript:;" onclick="pwd();">
+                            <a href="javascript:;void(0);" onclick="showpwd()" >
                                 修改密码
                             </a>
-                        </dd>--%>
+                        </dd>
                         <dd>
                             <a href="${ctx}logout.html">
                                 退出登录
@@ -85,32 +90,65 @@ var layer;
     /**
      * 初始化整个cms骨架
      */
+    var layer
     layui.use(['cms','layer'], function() {
         var cms = layui.cms('left-nav', 'top-tab');
         layer = layui.layer;
-        cms.addNav([
-            {id: 1, pid: 0, node: '主页', url: '${ctx}main.html'},
-            {id: 2, pid: 0, node: '系统管理', url: ''},
-            {id: 3, pid: 0, node: '用户信息管理', url: ''},
-            {id: 4, pid: 0, node: '新闻动态管理', url: ''},
-            {id: 5, pid: 0, node: '留言板管理', url: ''},
-            {id: 6, pid: 0, node: '公共设置管理', url: ''},
-            {id: 7, pid: 2, node: '系统用户', url: '${ctx}user/index.html'},
-            {id:10, pid: 3, node: '注册用户管理', url: '${ctx}account/list.html'},
-            {id:11, pid: 4, node: '社团新闻', url: '${ctx}news/index.html'},
-            {id:12, pid: 4, node: '社团动态', url: '${ctx}trends/index.html'},
-            {id:13, pid: 4, node: '社团公告', url: '${ctx}notes/index.html'},
-            {id:12, pid: 5, node: '留言管理', url: '${ctx}topic/all.html'},
-            {id:13, pid: 6, node: '公共设施管理', url: '${ctx}device/index.html'},
+        var utype= "${sessionScope.userType}";
+        alert(utype);
+        var menu;
+        if(utype !="" && utype ==1){
+            menu= [
+                {id: 1, pid: 0, node: '主页', url: '${ctx}main.html'},
+                {id: 2, pid: 0, node: '系统管理', url: ''},
+                {id: 3, pid: 0, node: '用户信息管理', url: ''},
+                {id: 4, pid: 0, node: '新闻动态管理', url: ''},
+                {id: 5, pid: 0, node: '留言板管理', url: ''},
+                {id: 6, pid: 0, node: '公共设置管理', url: ''},
+                {id: 7, pid: 2, node: '系统用户', url: '${ctx}user/index.html'},
+                {id:10, pid: 3, node: '注册用户管理', url: '${ctx}account/list.html'},
+                {id:11, pid: 4, node: '社团新闻', url: '${ctx}news/index.html'},
+                {id:12, pid: 4, node: '社团动态', url: '${ctx}trends/index.html'},
+                {id:13, pid: 4, node: '社团公告', url: '${ctx}notes/index.html'},
+                {id:12, pid: 5, node: '留言管理', url: '${ctx}topic/all.html'},
+                {id:13, pid: 6, node: '公共设施管理', url: '${ctx}device/index.html'},
 
 
-        ], 0, 'id', 'pid', 'node', 'url');
+            ];
+        }else{
+            menu= [
+                {id: 1, pid: 0, node: '主页', url: '${ctx}main.html'},
+
+                {id: 3, pid: 0, node: '用户信息管理', url: ''},
+                {id: 4, pid: 0, node: '新闻动态管理', url: ''},
+                {id: 5, pid: 0, node: '留言板管理', url: ''},
+                {id: 6, pid: 0, node: '公共设置管理', url: ''},
+
+                {id:10, pid: 3, node: '注册用户管理', url: '${ctx}account/list.html'},
+                {id:11, pid: 4, node: '社团新闻', url: '${ctx}news/index.html'},
+                {id:12, pid: 4, node: '社团动态', url: '${ctx}trends/index.html'},
+                {id:13, pid: 4, node: '社团公告', url: '${ctx}notes/index.html'},
+                {id:12, pid: 5, node: '留言管理', url: '${ctx}topic/all.html'},
+                {id:13, pid: 6, node: '公共设施管理', url: '${ctx}device/index.html'},
+
+
+            ];
+        }
+
+        cms.addNav(menu, 0, 'id', 'pid', 'node', 'url');
 
         cms.bind(60 + 41 + 20 + 44); //头部高度 + 顶部切换卡标题高度 + 顶部切换卡内容padding + 底部高度
 
         cms.clickLI(0);
     });
-
+function  showpwd(){
+    layer.open({
+        type: 2,
+        area: ['460px', '500px'],
+        skin: 'layui-layer-rim', //加上边框
+        content: ['${ctx}user/currpwd.html', 'no']
+    });
+}
 </script>
 </body>
 </html>

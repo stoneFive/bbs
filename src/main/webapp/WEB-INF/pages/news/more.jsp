@@ -45,7 +45,7 @@
                                         <span></span>
                                         <span class="fly-list-hint">
                                             <i class="iconfont"><fmt:formatDate value="${news.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></i>&nbsp;&nbsp;
-                                            <i class="iconfont" title="人气">&#xe60c;</i> 16
+                                            <i class="iconfont" title="人气">&#xe60c;</i> ${news.viewCount}
                                         </span>
                                     </p>
                                 </li>

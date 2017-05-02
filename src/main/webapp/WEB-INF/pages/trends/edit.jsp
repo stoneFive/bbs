@@ -35,6 +35,7 @@
                     <label class="layui-form-label">社团动态</label>
                     <div class="layui-input-block">
                         <textarea id="contents" name="contents" placeholder="社团动态" lay-verify="required"  class="layui-textarea">${entity.contents}</textarea>
+
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -53,9 +54,17 @@
 <script type="text/javascript">
     var layer;
     var form
-    layui.use(['layer', 'form','laydate'], function(){
+    layui.use(['layer', 'form','laydate','layedit'], function(){
         form = layui.form();
         layer = layui.layer;
+        var layedit = layui.layedit;
+        layedit.set({
+            uploadImage: {
+                url: '${ctx}upload/image.html' //接口url
+                ,type: '' //默认post
+            }
+        });
+        layedit.build('contents'); //建立编辑器
 
         form.on('submit(myform)', function(data){
 

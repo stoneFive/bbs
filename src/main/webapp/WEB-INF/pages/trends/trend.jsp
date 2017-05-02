@@ -2,7 +2,7 @@
 <html>
 <head>
     <%@include file="/WEB-INF/pages/common/taglib.jsp" %>
-    <title>新闻详情</title>
+    <title>动态详情</title>
 
 <style type="text/css">
 
@@ -12,6 +12,7 @@
         text-align: left;
         line-height: 30px;
         font-size: 14px;;
+        width: 100%;
     }
 </style>
 </head>
@@ -29,12 +30,18 @@
                     <h1 class="text-left">&nbsp;&nbsp;&nbsp;${entity.title}</h1>
                     <dl class="dl-inline ">
                         <dt>发表时间 :</dt>
-                        <dd>  <fmt:formatDate value="${entity.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></dd>
+                        <dd>  <fmt:formatDate value="${entity.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />
+
+                        </dd>
                         <dd>  &nbsp;&nbsp;阅读 ${entity.viewCount} 次</dd>
                     </dl>
                     <section class="abstract">
-                        <p><strong>摘要：</strong>${entity.subTitle}</p>
+                        <p><strong>摘要：</strong>${entity.subTitle}
+
+                        </p>
+
                     </section>
+
                 </header>
                 <!-- 文章正文部分 -->
                 <section class="content">

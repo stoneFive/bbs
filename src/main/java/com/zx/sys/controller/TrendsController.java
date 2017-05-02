@@ -6,11 +6,14 @@ import com.zx.sys.service.NewsService;
 import com.zx.sys.service.TrendsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by lance
@@ -41,8 +44,25 @@ public class TrendsController extends BaseController<Trends,Long,TrendsService> 
     }
 
     @RequestMapping("/del.html")
+    @ResponseBody
     public  String del(HttpServletRequest request, @RequestParam("id") long id){
         entityService.delete(id);
-        return "redirect:/trends/index.html";
+        return "true";
+    }
+
+    @RequestMapping("/front/trend.html")
+    public  String trend(HttpServletRequest request, @RequestParam("id") long id, Model model){
+        Trends trends = entityService.get(id);
+        model.addAttribute("entity",trends);
+        int count = trends.getViewCount()+1;
+        trends.setViewCount(count);
+        entityService.update(trends);
+        return "/trends/trend";
+    }
+    @RequestMapping("/front/more.html")
+    public String more(HttpServletRequest request,Model model){
+        List<Trends> list  = entityService.listAll();
+        model.addAttribute("entitys",list);
+        return "trends/more";
     }
 }

@@ -67,7 +67,7 @@ public class LoginController  {
             }
             request.getSession().setAttribute(Constant.SESSION_USER_NAME,tmp.getNickName());
             request.getSession().setAttribute(Constant.SESSION_USER,tmp);
-            request.getSession().setAttribute(Constant.USER_TYPE,1);
+            request.getSession().setAttribute(Constant.USER_TYPE,tmp.getUtype());
         }
 
         return new AppResp(InfoCode.SUCCESS,"").toString();

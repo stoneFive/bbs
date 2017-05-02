@@ -41,6 +41,15 @@ public class User extends IdLongEntity {
     private String email;
 
     private String avatar;
+    private  int utype;
+
+    public int getUtype() {
+        return utype;
+    }
+
+    public void setUtype(int utype) {
+        this.utype = utype;
+    }
 
     @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date birthday;

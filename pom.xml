@@ -39,7 +39,7 @@
         <httpclient.version>4.3.4</httpclient.version>
         <commons-io.version>2.4</commons-io.version>
         <junit.version>4.11</junit.version>
-        <jdk.version>1.8</jdk.version>
+        <jdk.version>1.7</jdk.version>
         <commons-lang3.version>3.3.2</commons-lang3.version>
         <shiro.version>1.2.3</shiro.version>
 

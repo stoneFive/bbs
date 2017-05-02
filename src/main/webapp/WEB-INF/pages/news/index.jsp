@@ -26,17 +26,14 @@
 
                 <div class="layui-form-item">
                     <div class="layui-input-block" style="float: right;padding-right: 45px;">
+                        <a id="" class="layui-btn" style="margin-left: 20px;" href="${ctx}news/edit.html">添加</a>
                         <button id="search" class="layui-btn" type="submit">搜索</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="row">
-            <div class="col-md-8 ">
-            <a id="" class="layui-btn" style="margin-left: 20px;" href="${ctx}news/edit.html">添加</a>
-            </div>
-        </div>
+
         <table class="layui-table" lay-skin="line">
             <colgroup>
                 <col width="20%">
@@ -60,7 +57,7 @@
                     <td>${entity.title}</td>
                     <td>${entity.subTitle}</td>
                     <td><fmt:formatDate value="${entity.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-                    <td> <a class="layui-btn layui-btn-small" href="${ctx}news/del.html?id=${entity.id}"  >删除 </a>&nbsp;
+                    <td> <a class="layui-btn layui-btn-small" href="javaScript:void(0);" onclick="del(${entity.id})"  >删除 </a>&nbsp;
                        <a class="layui-btn layui-btn-small" href="${ctx}news/edit.html?id=${entity.id}"  >修改 </a> &nbsp;
                    </td>
 
@@ -104,7 +101,7 @@
     });
 
     function  del(id){
-    var path = '${ctx}topic/del.html';
+    var path = '${ctx}news/del.html';
         layer.confirm('确认操作？', function(index){
             $.ajax({
                 type: "POST",
