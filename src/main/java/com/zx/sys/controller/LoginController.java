@@ -28,7 +28,8 @@ import java.util.Date;
  */
 @Controller
 public class LoginController  {
- @Autowired
+
+    @Autowired
     private AccountService accountService;
 
     @Autowired
