@@ -52,9 +52,10 @@ public class TopicController extends BaseController<Topic,Long,TopicService> {
     }
     @RequestMapping("/list.html")
     public  String index(HttpServletRequest request, Model model){
-        List<Topic> topicList = topicService.listAll();
-        List<TopicComment> topicComments = topicCommentService.listAll();
-        List<TopicReply> topicReplies = topicReplyService.listAll();
+        List<Topic> topicList = topicService.search(null,1,100,"desc","id").getContent();
+
+        List<TopicComment> topicComments = topicCommentService.search(null,1,100,"desc","id").getContent();
+        List<TopicReply> topicReplies = topicReplyService.search(null,1,100,"desc","id").getContent();
         System.out.println( "topicReplies : " + topicReplies.size());
         Map<Long,List<TopicComment>> comments = Maps.newHashMap(); // 所有的评论
         Map<Long,List<TopicReply>> replys = Maps.newHashMap(); // 所有的回复
@@ -115,11 +116,23 @@ public class TopicController extends BaseController<Topic,Long,TopicService> {
     @RequestMapping("/add.html")
     @ResponseBody
     public  String saveTopic(HttpServletRequest request){
+        Object o =  request.getSession().getAttribute(Constant.SESSION_USER);
+        String currName = "";
+        long currId = 0l;
+        if(o instanceof Account){
+            Account account = (Account)o;
+            currName = account.getNickName();
+            currId = account.getId();
+        }else {
+            User user = (User)o;
+            currName= user.getNickName();
+            currId = user.getId();
+        }
         String text = request.getParameter("topic");
         Topic topic = new Topic();
         topic.setCommentText(text);
-        topic.setName("admin");
-        topic.setUserId(1);
+        topic.setName(currName);
+        topic.setUserId(currId);
         topic.setCreateTime(new Date());
         topicService.save(topic);
         Map<String,Object>  data = Maps.newHashMap();

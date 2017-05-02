@@ -18,7 +18,7 @@
             <form  id="searchFrom" class="layui-form" action="${ctx}trends/index.html" method="post">
                 <input type="hidden" name="page" id="page" value="${param['page']}">
                 <input type="hidden" name="pageSize" id="pageSize" value="${param['pageSize']}">
-               <div class="row">
+               <div class="row" >
                    <label class="layui-form-label">
                        标题:</label>
                    <input  name="search_LIKES_title" id="title" value="${param['search_LIKES_title']}" style="width: 150px;">
@@ -33,8 +33,8 @@
             </form>
         </div>
         <div class="row">
-            <div class="col-md-8 col-sm-offset-1">
-            <a id="" class="layui-btn"  href="${ctx}trends/edit.html">添加</a>
+            <div class="col-md-8 ">
+            <a id="" class="layui-btn" style="margin-left: 20px;" href="${ctx}trends/edit.html">添加</a>
             </div>
         </div>
         <table class="layui-table" lay-skin="line">

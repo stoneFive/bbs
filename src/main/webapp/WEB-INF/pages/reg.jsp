@@ -100,7 +100,9 @@
                 url: "${ctx}regsave.html",
                 data: d,
                 success: function(data){
+
                     var d =  $.parseJSON(data);
+                    console.info(d)
                     var s = d.status;
                     var msg = d.data;
                     console.info("msg :" +msg);

@@ -5,9 +5,14 @@
         <div style="margin-left: 110px;">
             <ul class="layui-nav" lay-filter="">
                 <li class="layui-nav-item"><a href="${ctx}index.html">首页</a></li>
-                <li class="layui-nav-item"><a href="">社团新闻</a></li>
-                <li class="layui-nav-item"><a href="">社团公告</a></li>
-                <li class="layui-nav-item"><a href="${ctx}device/toAdd.html">公共设施预约</a></li>
+                <li class="layui-nav-item"><a href="${ctx}news/front/more.html">社团新闻</a></li>
+                <li class="layui-nav-item"><a href="${ctx}notes/front/more.html">社团公告</a></li>
+
+                <c:if test="${sessionScope.userType ==1}">
+                    <li class="layui-nav-item"><a href="${ctx}device/toAdd.html">公共设施预约</a></li>
+
+                </c:if>
+
 
                 <li class="layui-nav-item"><a href="${ctx}topic/list.html">留言版</a></li>
                 <li class="layui-nav-item"><a href="${ctx}about/index.html">关于我们</a></li>

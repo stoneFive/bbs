@@ -68,7 +68,7 @@
                     <td><fmt:formatDate value="${entity.returnTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                 </tr>
                 <tr>
-                    <td> 结束时间:</td>
+                    <td> 审批时间:</td>
                     <td><fmt:formatDate value="${entity.returnTime}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                 </tr>
                 <tr>
@@ -83,50 +83,55 @@
 
 </div>
 
-<div class="container" style="margin-bottom: 10px">
+<c:if test="${sessionScope.user_name eq 'admin'}">
 
-    <div class="row" style="margin-top: 20px;">
-        <h3>设施预约审批确认</h3>
-        <form  id="" class="layui-form" action="${ctx}device/shenpi.html" method="post">
-            <input name="id" value="${entity.id}" type="hidden" />
-            <div class="layui-form-item">
-                <label class="layui-form-label">审批人:</label>
-                <div class="layui-input-block">
-                    <input type="text" id="replayNam" name="replayNam" lay-verify="required" placeholder="标题" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">电话:</label>
-                <div class="layui-input-block">
-                    <input type="text" id="rephone" name="rephone" lay-verify="required|phone" placeholder="标题" autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <div class="layui-form-item">
-                <label class="layui-form-label">
-                    审批</label>
-                <div class="layui-input-inline">
-                    <select id="status" name="status" lay-verify="required">
-                        <option value="1" selected>通过</option>
-                        <option value="2">不通过</option>
+    <div class="container" style="margin-bottom: 10px">
 
-                    </select>
+        <div class="row" style="margin-top: 20px;">
+            <h3>设施预约审批确认</h3>
+            <form  id="" class="layui-form" action="${ctx}device/shenpi.html" method="post">
+                <input name="id" value="${entity.id}" type="hidden" />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">审批人:</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="replayNam" name="replayNam" lay-verify="required" placeholder="标题" autocomplete="off" class="layui-input">
+                    </div>
                 </div>
-            </div>
-            <div class="layui-form-item layui-form-text">
-                <label class="layui-form-label">审批原因:</label>
-                <div class="layui-input-block">
-                    <textarea id="replay" name="replay" placeholder="审批原因" lay-verify="required"  class="layui-textarea"></textarea>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">电话:</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="rephone" name="rephone" lay-verify="required|phone" placeholder="标题" autocomplete="off" class="layui-input">
+                    </div>
                 </div>
-            </div>
-            <div class="layui-form-item">
-                <div class="layui-input-block" style="float: right;padding-right: 45px;">
-                    <button class="layui-btn"  lay-submit lay-filter="myform">申请确认</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">
+                        审批</label>
+                    <div class="layui-input-inline">
+                        <select id="status" name="status" lay-verify="required">
+                            <option value="1" selected>通过</option>
+                            <option value="2">不通过</option>
+
+                        </select>
+                    </div>
                 </div>
-            </div>
-        </form>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label">审批原因:</label>
+                    <div class="layui-input-block">
+                        <textarea id="replay" name="replay" placeholder="审批原因" lay-verify="required"  class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="float: right;padding-right: 45px;">
+                        <button class="layui-btn"  lay-submit lay-filter="myform">申请确认</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+</c:if>
+
+
 <script type="text/javascript">
     var layer;
     var form

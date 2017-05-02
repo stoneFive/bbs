@@ -69,6 +69,7 @@
 
                var d= res.url; //上传成功返回值，必须为json格式
                 $('#fileUrl').val(d);
+                layer.msg('上传成功！');
             }
         });
         form.on('submit(myform)', function(data){

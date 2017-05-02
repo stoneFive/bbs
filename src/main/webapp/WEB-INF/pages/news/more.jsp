@@ -31,10 +31,10 @@
 
             <div class="layui-tab layui-tab-brief">
                 <ul class="layui-tab-title ">
-                    <li class="layui-this"><h3>校园公告</h3></li>
+                    <li class="layui-this"><h3>社团新闻</h3></li>
                 </ul>
                 <div class="layui-tab-content">
-                    <div class="layui-tab-item">
+                    <div class="layui-tab-item layui-show">
 
                         <ul class="fly-list">
                             <c:forEach var="news" items="${entitys}">

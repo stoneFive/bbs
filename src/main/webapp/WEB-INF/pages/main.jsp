@@ -15,6 +15,9 @@
     </h1>
 
 </blockquote>
-<h1>欢迎使用!测试</h1>
+<div class="container" style="text-align: center">
+    
+    <img  style="padding-top: 10px;" width="95%" height="85%" src="${ctx}resources/images/bg.jpg">
+</div>
 </body>
 </html>
