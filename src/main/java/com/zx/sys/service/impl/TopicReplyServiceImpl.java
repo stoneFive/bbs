@@ -15,7 +15,7 @@ public class TopicReplyServiceImpl extends BaseServiceImpl<TopicReply,Long,Topic
 
    @Autowired
    @Override
-    public void setEntityRepository(TopicReplyRepository repository) {
-        this.repository = repository;
+    public void setEntityRepository(TopicReplyRepository topicReplyRepository) {
+        this.repository = topicReplyRepository;
     }
 }

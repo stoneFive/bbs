@@ -15,8 +15,8 @@ public class PermissionServiceImpl extends
 
 	@Override
 	@Autowired
-	public void setEntityRepository(PermissionRepository repository) {
-		this.repository = repository;
+	public void setEntityRepository(PermissionRepository permissionRepository) {
+		this.repository = permissionRepository;
 	}
 
 	

@@ -18,7 +18,7 @@ public class TrendsServiceImpl extends BaseServiceImpl<Trends,Long,TrendsReposit
 
     @Autowired
     @Override
-    public void setEntityRepository(TrendsRepository repository) {
-        this.repository = repository;
+    public void setEntityRepository(TrendsRepository trendsRepository) {
+        this.repository = trendsRepository;
     }
 }

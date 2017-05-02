@@ -32,9 +32,9 @@
                 </div>
 
                 <div class="layui-form-item layui-form-text">
-                    <label class="layui-form-label">预约详情:</label>
+                    <label class="layui-form-label">社团动态</label>
                     <div class="layui-input-block">
-                        <textarea id="contents" name="contents" placeholder="新闻内容" lay-verify="required"  class="layui-textarea">${entity.contents}</textarea>
+                        <textarea id="contents" name="contents" placeholder="社团动态" lay-verify="required"  class="layui-textarea">${entity.contents}</textarea>
                     </div>
                 </div>
                 <div class="layui-form-item">

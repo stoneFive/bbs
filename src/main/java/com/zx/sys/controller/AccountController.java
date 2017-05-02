@@ -21,8 +21,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/account")
 public class AccountController extends BaseController<Account,Long,AccountService> {
-    @Autowired
+   @Autowired
     private AccountService accountService;
+   @Autowired
     @Override
     public void setEntityService(AccountService accountService) {
         this.entityService = accountService;

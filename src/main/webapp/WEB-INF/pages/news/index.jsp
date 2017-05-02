@@ -33,8 +33,8 @@
             </form>
         </div>
         <div class="row">
-            <div class="col-md-8 col-sm-offset-1">
-            <a id="" class="layui-btn"  href="${ctx}news/edit.html">添加</a>
+            <div class="col-md-8 ">
+            <a id="" class="layui-btn" style="margin-left: 20px;" href="${ctx}news/edit.html">添加</a>
             </div>
         </div>
         <table class="layui-table" lay-skin="line">

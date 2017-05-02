@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class TopicCpmmentServiceImpl extends BaseServiceImpl<TopicComment,Long,TopicComRepository> implements TopicCommentService {
     @Autowired
     @Override
-    public void setEntityRepository(TopicComRepository repository) {
-    this.repository = repository;
+    public void setEntityRepository(TopicComRepository topicComRepository) {
+    this.repository = topicComRepository;
     }
 }

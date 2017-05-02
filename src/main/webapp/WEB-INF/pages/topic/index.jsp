@@ -3,14 +3,7 @@
 <html>
 <head>
     <%@include file="/WEB-INF/pages/common/taglib.jsp" %>
-<%--
-    <!-- ZUI 标准版压缩后的 CSS 文件 -->
-    <link rel="stylesheet" href="http://cdn.bootcss.com/zui/1.5.0/css/zui.min.css">
 
-    <!-- ZUI Javascript 依赖 jQuery -->
-    <script src="http://cdn.bootcss.com/zui/1.5.0/lib/jquery/jquery.js"></script>
-    <!-- ZUI 标准版压缩后的 JavaScript 文件 -->
-    <script src="http://cdn.bootcss.com/zui/1.5.0/js/zui.min.js"></script>--%>
     <title>bbs</title>
 
     <script type="text/javascript">

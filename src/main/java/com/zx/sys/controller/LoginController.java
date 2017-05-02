@@ -56,6 +56,7 @@ public class LoginController  {
             }
             request.getSession().setAttribute(Constant.SESSION_USER_NAME,tmp.getNickName());
             request.getSession().setAttribute(Constant.SESSION_USER,tmp);
+            request.getSession().setAttribute(Constant.USER_TYPE,0);
         }else{
             User tmp = userService.findByUserName(name);
             if(tmp == null){
@@ -66,6 +67,7 @@ public class LoginController  {
             }
             request.getSession().setAttribute(Constant.SESSION_USER_NAME,tmp.getNickName());
             request.getSession().setAttribute(Constant.SESSION_USER,tmp);
+            request.getSession().setAttribute(Constant.USER_TYPE,1);
         }
 
         return new AppResp(InfoCode.SUCCESS,"").toString();
